@@ -1,21 +1,25 @@
 var canvasHeight = "800";
 var canvasWidth = "800";
 var canvas = null;
-var context
+var context = null;
+var balls = new Array();
 
-/*class Ball{
-  constructor(height, width, xPos, yPos){
+function Ball(height, width, xPos, yPos, xVel, yVel) {
     this.height = height;
     this.width = width;
     this.xPos = xPos;
     this.yPos = yPos;
-  }
+    this.xVel = xVel;
+    this.yVel = yVel;
+}
 
-  function drawBall(){
-  }
-  function update(){
-  }
-}*/
+Ball.prototype.update = function(){
+
+};
+
+Ball.prototype.draw = function(){
+
+};
 
 function startCanvas(){
   canvas = document.getElementById("myCanvas");
@@ -25,13 +29,17 @@ function startCanvas(){
 }
 
 function setUpCanvas(){
+  for (var i=1; i < 100; i++){
 
+  }
 }
 
 function AnimateCanvas(){
-
+  /*for each (var x in balls){
+    x.update();
+  }*/
 }
 
 function ClearCanvas(){
-
+  context.clearRect(0,0, canvas.width, canvas.height);
 }
