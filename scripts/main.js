@@ -1,5 +1,6 @@
-var canvasHeight = "800";
-var canvasWidth = "800";
+var margin = 50;
+var canvasHeight = window.innerHeight - margin;
+var canvasWidth = window.innerWidth - margin;
 var canvas = null;
 var context = null;
 var balls = new Array();

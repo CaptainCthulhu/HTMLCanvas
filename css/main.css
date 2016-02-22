@@ -1,3 +1,7 @@
+.outterDiv {
+  text-align: center;
+  width: 100%;
+}
 .mainDiv {
-  align-self: center;
+  display: inline-block;
 }
