@@ -1,46 +1,40 @@
 var margin = 50;
 var canvasHeight = window.innerHeight - margin;
 var canvasWidth = window.innerWidth - margin;
-var canvas = null;
-var context = null;
 var balls = new Array();
+var animateTimer = 16;
+var variability = 5;
+var offset = 50;
+var canvas, ctx;
 
-function Ball(height, width, xPos, yPos, xVel, yVel) {
-    this.height = height;
-    this.width = width;
-    this.xPos = xPos;
-    this.yPos = yPos;
-    this.xVel = xVel;
-    this.yVel = yVel;
-}
-
-Ball.prototype.update = function(){
-
-};
-
-Ball.prototype.draw = function(){
-
-};
-
-function startCanvas(){
+window.onload = function(){
   canvas = document.getElementById("myCanvas");
-  canvas.width = canvasWidth;
-  canvas.height = canvasHeight;
-  context = canvas.getContext("2d");
+  ctx = canvas.getContext("2d");
+  ctx.lineWidth = 10;
+  canvas.width = canvasWidth, canvas.height = canvasHeight;
+  setUpCanvas();
+  setInterval(AnimateCanvas, animateTimer);
 }
 
 function setUpCanvas(){
   for (var i=1; i < 100; i++){
-
+    balls[balls.length]
+      = new Ball(
+        Math.random() * variability + offset,
+        Math.random() * variability + offset,
+        Math.random() * variability,
+        Math.random() * variability);
   }
 }
 
 function AnimateCanvas(){
-  /*for each (var x in balls){
-    x.update();
-  }*/
+  ClearCanvas();
+  for (var i = 0; i < balls.length; ++i){
+    balls[i].update();
+    balls[i].draw();
+  }
 }
 
 function ClearCanvas(){
-  context.clearRect(0,0, canvas.width, canvas.height);
+  ctx.clearRect(0,0, canvas.width, canvas.height);
 }

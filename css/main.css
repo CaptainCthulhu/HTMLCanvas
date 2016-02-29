@@ -5,3 +5,8 @@
 .mainDiv {
   display: inline-block;
 }
+
+#myCanvas {
+	display: block;
+	border: 1px solid blue;	
+}
